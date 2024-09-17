@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li:hover {
+            background-color: #e0f7ff;
+            transform: translateY(-3px);
+            transition: 0.3s ease-in-out;
+        }
+
+        .contact-name {
+            font-weight: bold;
+        }
+
+        .contact-number {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ff4b5c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact List</h1>
+        
+        {% if contacts %}
+            <ul>
+                {% for contact in contacts %}
+                    <li>
+                        <span class="contact-name">{{ contact.firstname }} {{ contact.lastname }}</span>
+                        <span class="contact-number">{{ contact.contact_number }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No contacts found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
